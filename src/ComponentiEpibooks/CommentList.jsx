@@ -1,7 +1,7 @@
 import { ListGroup, Button, Form } from 'react-bootstrap';
 
 const ListaCommenti = ({ 
-  comments, handleDelete, handleEdit, editingComment, editForm, submitEdit }) => 
+  comments, handleDelete, handleEdit, editingComment, editForm, setEditForm, submitEdit }) => 
     {
   return (
     <ListGroup className="mt-3">
@@ -30,7 +30,6 @@ const ListaCommenti = ({
                 <Button onClick={() => submitEdit(comment._id)}>Salva</Button>
               </Form>
             ) : (
-              // Visualizzazione normale
               <>
                 <div>
                   <p className="mb-1">{comment.comment}</p>
@@ -41,7 +40,7 @@ const ListaCommenti = ({
                   size="sm"
                   onClick={() => handleDelete(comment._id)}
                 >
-                 <i class="bi bi-trash"></i>
+                 <i className="bi bi-trash"></i>
                 </Button>
 
                 <Button 
@@ -49,7 +48,7 @@ const ListaCommenti = ({
                   size="sm"
                   onClick={() => handleEdit(comment._id, comment)}
                 >
-                <i class="bi bi-pencil-square"></i>
+                <i className="bi bi-pencil-square"></i>
                 </Button>
               </>
             )}
@@ -61,3 +60,4 @@ const ListaCommenti = ({
 };
 
 export default ListaCommenti;
+

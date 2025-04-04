@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { authHeaders, BASE_URL } from '../api/api-config';
 
 const NewComment = ({ asin,   AddedCommment }) => {
     const [Addcomment, setAddComment] = useState('');
@@ -10,7 +11,7 @@ const NewComment = ({ asin,   AddedCommment }) => {
     const handleComment = async (e) => {
         e.preventDefault();
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
+            let response = await fetch(`${BASE_URL}/comments/`, {
                 method: 'POST',
                 body: JSON.stringify({
                     comment: Addcomment,
@@ -19,8 +20,7 @@ const NewComment = ({ asin,   AddedCommment }) => {
                 }),
                 headers: {
                     'Content-type': 'application/json',
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxYzZhMjUzMDRhNzAwMTUxNDhiNDUiLCJpYXQiOjE3Mzk5ODQ0NTYsImV4cCI6MTc0MTE5NDA1Nn0.35diMCT59ubFNEHfUAW6VrC7mMlpYvMEKBH1hcEho4U"
-                }
+                    ...authHeaders}
             });
             if (response.ok) {
                 alert('Commento aggiunto!');

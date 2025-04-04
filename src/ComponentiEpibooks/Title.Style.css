@@ -1,0 +1,225 @@
+/* Titolo con gradiente animato */
+/* Questo stile crea un titolo colorato con colori che cambiano e si muovono */
+
+
+
+
+.sfondoCustom{
+    background-color: #2f2f31;
+}
+
+/* Aggiungi questa classe separata */
+.navbar-custom-sticky {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1030 !important;
+    width: 100% !important;
+    background-color: #212529 !important;
+  }
+
+
+.gradient-title {
+  font-size: 3.5rem;         /* Dimensione del testo - 3.5rem è molto grande, come 35mm */
+  font-weight: bold;         /* Rende il testo in grassetto, come quando premi forte sulla matita */
+  
+  /* Questa riga crea un arcobaleno di colori che va in diagonale (-45 gradi) */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  
+  /* Questo dice quanto grande deve essere l'arcobaleno rispetto al testo */
+  background-size: 300% 300%;
+  
+  /* Questi due comandi dicono che il colore deve stare solo dentro le lettere */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;         /* Rende il testo in grassetto, come quando premi forte sulla matita */
+  /* Questo fa muovere i colori, come un cartone animato */
+  animation: gradient-shift 10s ease infinite;
+}
+
+/* Questo è come una ricetta per dire come si devono muovere i colori */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }    /* All'inizio, i colori sono posizionati qui */
+  50% { background-position: 100% 50%; } /* A metà tempo, i colori si sono spostati qui */
+  100% { background-position: 0% 50%; }  /* Alla fine, i colori tornano dove erano all'inizio */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Titolo con effetto neon */
+.neon-title{
+  font-size: 1.5rem;        /* Dimensione del testo - grande come 15mm */
+  color: #fff;              /* Colore del testo - #fff significa bianco */
+  
+  /* Questa parte crea 5 ombre che si sovrappongono, come luci che brillano */
+  text-shadow: 0 0 5px #fff,      /* Prima luce: bianca (#fff) e piccola (5px) */
+              0 0 10px #fff,     /* Seconda luce: bianca e un po' più grande */
+              0 0 20px #ff0080,  /* Terza luce: rosa (#ff0080) e ancora più grande */
+              0 0 30px #ff0080,  /* Quarta luce: rosa e molto grande */
+              0 0 40px #ff0080;  /* Quinta luce: rosa e grandissima */
+  
+  /* Questo fa lampeggiare la luce, come quando le luci al neon hanno problemi */
+  animation: neon-flicker 2s infinite alternate;
+  
+  /* Proprietà di allineamento e dimensionamento */
+  display: inline-block;  /* Permette all'elemento di stare in linea mantenendo proprietà di blocco */
+  vertical-align: middle; /* Allineamento verticale rispetto agli elementi vicini */
+  
+  /* Responsive: dimensioni diverse per schermi diversi */
+  white-space: nowrap;   /* Impedisce al testo di andare a capo */
+}
+
+/* Questa è la ricetta per dire come deve lampeggiare la luce */
+@keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { 
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080; 
+  }
+  20%, 24%, 55% { 
+    text-shadow: none; 
+  }
+}
+
+/* Queste regole si attivano SOLO su schermi più piccoli */
+@media (max-width: 768px) {
+  .neon-title {
+    font-size: 1.2rem;  /* Riduce la dimensione su tablet */
+  }
+}
+
+@media (max-width: 576px) {
+  .neon-title {
+    font-size: 1rem;    /* Riduce ancora di più su smartphone */
+  }
+}
+
+/* Aggiungo la definizione dell'animazione shine mancante */
+@keyframes shine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Titolo con effetto 3D - fa sembrare che le lettere escano dalla pagina! */
+.title-3d {
+  font-size: 4rem;         /* Dimensione del testo - grandissimo come 40mm */
+  font-weight: 900;        /* Spessore del testo - 900 è super grassetto, più forte che puoi */
+  color: #5a3c8b;          /* Colore del testo - viola chiaro */
+  
+  /* Queste righe creano tante ombre una sotto l'altra, come strati di carta */
+  text-shadow: 0 1px 0 #4a3272,    
+               0 2px 0 #3d2a5d,    
+               0 3px 0 #30214a,    
+               0 4px 0 #231836,    
+               0 5px 10px rgba(0, 0, 0, 0.6); 
+  
+  /* Questa riga inclina un po' il testo */
+  transform: perspective(500px) rotateX(10deg);
+}
+
+/* Titolo con effetto macchina da scrivere */
+.typewriter {
+  font-size: 2.5rem;          
+  font-family: monospace;     
+  overflow: hidden;           
+  border-right: .15em solid orange;  
+  white-space: nowrap;        
+  margin: 0 auto;             
+  letter-spacing: .1em;       
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }          
+  to { width: 100% }         
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }  
+  50% { border-color: orange; }           
+}
+
+/* Titolo con effetto vetro sfocato */
+.glass-title {
+  font-size: 3rem;           
+  background: rgba(255, 255, 255, 0.2);   
+  backdrop-filter: blur(8px);             
+  border-radius: 10px;       
+  padding: 20px;             
+  color: white;              
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  
+  border: 1px solid rgba(255, 255, 255, 0.1);           
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);     
+}
+
+/* Titolo con effetto 3D */
+.book-title-3d {
+  font-size: 1.8rem;         
+  font-weight: 900;          
+  font-family: 'Georgia', serif; 
+  color: #8a2be2;            
+  text-shadow: 
+    0 1px 0 #7522c9,        
+    0 2px 0 #631fb0,        
+    0 3px 0 #511c97,        
+    0 4px 0 #41167c,        
+    0 5px 10px rgba(0, 0, 0, 0.6); 
+  transform: perspective(500px) rotateX(10deg);
+  transition: all 0.3s ease;
+  padding: 0.1em 0.2em;
+  margin: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.2) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+
+/* 
+/* effetti Speciali
+
+text-shadow: Crea un'ombra dietro il testo. Come quando metti una torcia sotto un foglio. text-shadow: 0 1px 0 #7522c9; = piccola ombra viola 1 pixel più in basso0s ease infinite; = usa l'animazione chiamata "gradient-shift", che dura 10 secondi, si muove in modo fluido e non si ferma mai
+
+background: Il colore o l'immagine dietro qualcosa. Come dipingere un foglio prima di scriverci sopra. background: rgba(255,255,255,0.2); = bianco trasparente (0.2 = 20% visibile)
+
+linear-gradient: Un'area che cambia colore gradualmente. Come quando mischi i colori dei pennarelli. background: linear-gradient(-45deg, #ee7752, #e73c7e); = mescola arancione e rosa in diagonale
+
+backdrop-filter: Cambia l'aspetto di ciò che c'è dietro. Come guardare attraverso un vetro colorato. backdrop-filter: blur(8px); = tutto dietro diventa sfocato di 8 pixeltransform: Cambia la forma o la posizione. Come quando pieghi o ruoti un foglio di carta. transform: perspective(500px) rotateX(10deg); = inclina di 10 gradi, come per guardare da lontano
+
+
+
+Animazioni e MovimentoBordi e Spazi
+
+animation: Fa muovere o cambiare qualcosa. Come un piccolo cartone animato. animation: gradient-shift 10s ease infinite; = usa l'animazione chiamata "gradient-shift", che dura 10 secondi, si muove in modo fluido e non si ferma mai
+rente
+@keyframes: La ricetta per un'animazione. Dice "all'inizio fai così, poi fai così, alla fine fai così".
+i arrotondati di 10 pixel
+transition: Rende i cambiamenti più fluidi. Come quando rallenti un movimento anziché farlo di scatto. transition: all 0.3s ease; = tutti i cambiamenti durano 0.3 secondi e sono fluidi
+
+transform: Cambia la forma o la posizione. Come quando pieghi o ruoti un foglio di carta. transform: perspective(500px) rotateX(10deg); = inclina di 10 gradi, come per guardare da lontano
+margin: Lo spazio attorno all'elemento. Come lo spazio tra due fogli separati. margin: 0 auto; = zero spazio sopra/sotto, centrato orizzontalmente
+
+
+Bordi e Spazi
+
+Effetti Speciali Avanzati
+border: Crea un contorno. Come quando disegni una linea attorno a un disegno. border: 1px solid rgba(255,255,255,0.1); = linea sottile bianco-trasparente
+
+border-radius: Arrotonda gli angoli. Come quando tagli gli angoli di un foglio con le forbici. border-radius: 10px; = angoli arrotondati di 10 pixelbox-shadow: Un'ombra attorno a qualcosa. Come l'ombra di una scatola sul tavolo. box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37); = ombra grande e blu sotto l'elemento
+
+padding: Lo spazio tra il contenuto e il bordo. Come il margine di un quaderno. padding: 20px; = 20 pixel di spazio interno
+ci sta
+margin: Lo spazio attorno all'elemento. Come lo spazio tra due fogli separati. margin: 0 auto; = zero spazio sopra/sotto, centrato orizzontalmente
+ spezzare mai */

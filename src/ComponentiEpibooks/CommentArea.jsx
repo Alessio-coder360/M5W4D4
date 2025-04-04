@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react"
 import ListaCommenti from "./CommentList"
 import NewComment from "./AddComment"
+import { authHeaders, BASE_URL } from '../api/api-config';
 
 const CommentArea = function({ asin }) {
     const [comments, setComments] = useState([])
@@ -11,9 +12,10 @@ const CommentArea = function({ asin }) {
 
     const fetchComments = 
     () => {
-        fetch(`https://striveschool-api.herokuapp.com/api/comments/${asin}`, {
+        fetch(`${BASE_URL}/comments/${asin}`, {
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYxYzZhMjUzMDRhNzAwMTUxNDhiNDUiLCJpYXQiOjE3Mzk5ODQ0NTYsImV4cCI6MTc0MTE5NDA1Nn0.35diMCT59ubFNEHfUAW6VrC7mMlpYvMEKBH1hcEho4U"
+                'Content-type': 'application/json',
+                ...authHeaders
             }
         })
         .then(res => {
